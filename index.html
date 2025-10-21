@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaúdeJá</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Leaflet CSS (para o mapa) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <!-- ===== CABEÇALHO ===== -->
+  <header>
+    <h1>SaúdeJá</h1>
+    <p>Agilize seu atendimento na rede pública de saúde</p>
+  </header>
+
+  <!-- ===== MENU DE ABAS ===== -->
+  <nav>
+    <button class="active">Cadastro</button>
+    <button>UBS Próximas</button>
+    <button>Pré-Triagem</button>
+    <button>Rastreamento</button>
+    <button>Agendamento</button>
+    <button>Histórico</button>
+  </nav>
+
+  <!-- ===== SEÇÃO 1: CADASTRO ===== -->
+  <section class="active">
+    <div class="card">
+      <h2>Cadastro Inicial</h2>
+      <input type="text" id="nome" placeholder="Nome" />
+      <input type="text" id="cpf" placeholder="CPF" />
+      <input type="email" id="email" placeholder="E-mail" />
+      <button class="enviar" onclick="cadastrarUsuario()">Cadastrar</button>
+    </div>
+  </section>
+
+  <!-- ===== SEÇÃO 2: UBS PRÓXIMAS ===== -->
+  <section>
+    <div class="card">
+      <h2>UBS Próximas</h2>
+      <p>Veja no mapa as Unidades Básicas de Saúde mais próximas de você.</p>
+      <div id="map" class="map-container"></div>
+    </div>
+  </section>
+
+  <!-- ===== SEÇÃO 3: PRÉ-TRIAGEM ===== -->
+  <section>
+    <div class="card">
+      <h2>Pré-Triagem</h2>
+      <p>Descreva seus sintomas para agilizar seu atendimento.</p>
+      <textarea id="sintomas" rows="5" placeholder="Descreva seus sintomas..."></textarea>
+      <button class="enviar" onclick="enviarTriagem()">Enviar</button>
+      <p id="resultadoTriagem"></p>
+    </div>
+  </section>
+
+  <!-- ===== SEÇÃO 4: RASTREAMENTO ===== -->
+  <section>
+    <div class="card">
+      <h2>Rastreamento</h2>
+      <p>Acompanhe sua posição na fila de atendimento em tempo real.</p>
+      <input type="text" id="codigoRastreio" placeholder="Digite seu código de rastreio" />
+      <button class="enviar" onclick="rastrearFila()">Rastrear</button>
+      <p id="resultadoRastreamento"></p>
+    </div>
+  </section>
+
+  <!-- ===== SEÇÃO 5: AGENDAMENTO ===== -->
+  <section>
+    <div class="card">
+      <h2>Agendamento</h2>
+      <p>Agende consultas e exames de rotina.</p>
+      <select id="exame">
+        <option value="">Selecione o exame</option>
+        <option value="Exame de sangue">Exame de sangue</option>
+        <option value="Consulta clínica">Consulta clínica</option>
+        <option value="Raio-X">Raio-X</option>
+      </select>
+      <input type="date" id="data" />
+      <button class="enviar" onclick="agendar()">Agendar</button>
+    </div>
+  </section>
+
+  <!-- ===== SEÇÃO 6: HISTÓRICO ===== -->
+  <section>
+    <div class="card">
+      <h2>Histórico</h2>
+      <p>Acesse o histórico de exames e consultas realizadas.</p>
+      <p><i>Funcionalidade em desenvolvimento.</i></p>
+    </div>
+  </section>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer>
+    © 2025 SaúdeJá — Projeto Educacional
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
